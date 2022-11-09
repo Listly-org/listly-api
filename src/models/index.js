@@ -1,8 +1,17 @@
 const Sequelize = require('sequelize')
+const group = require('./group')
+const user = require('./user')
+const list = require('./list')
+const listItem = require('./listItem')
 
 const databaseConfig = require('../config/database')[process.env.NODE_ENV || 'development']
 
-const models = []
+const models = [
+    group,
+    user,
+    list,
+    listItem
+]
 
 class Database {
     constructor() {
