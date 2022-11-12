@@ -1,4 +1,6 @@
 const { Router } = require('express')
+const errorMiddleware = require('./middlewares/error')
+const authMiddleware = require('./middlewares/auth')
 const { public, private } = require('./common/routes')
 
 const router = new Router()
@@ -24,8 +26,12 @@ public.forEach(route => {
     createRoute(route)
 })
 
+router.use(authMiddleware)
+
 private.forEach(route => {
     createRoute(route)
 })
+
+router.use(errorMiddleware)
 
 module.exports = router
