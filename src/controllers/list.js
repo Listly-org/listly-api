@@ -1,4 +1,3 @@
-const { Sequelize } = require('sequelize')
 const { listValidation } = require('../common/validations')
 const list = require('../models/list')
 const listItem = require('../models/listItem')
@@ -16,38 +15,22 @@ const getAll = async (req, res, next) => {
             })
         }
 
-        const lists_with_all = await list.findAll({ 
+        const lists = await list.findAll({ 
             where: { group_id },
-            attributes: {
-                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'items_count' ]]
-            },
-            include: [{ 
-                model: listItem, 
-                attributes: [], 
-                where: { completed: true } 
-            }],
-            group: ['list.id']
+            include: [{ model: listItem }],
+            group: ['listItems.id', 'list.id']
         })
 
-        const lists_with_completed = await list.findAll({ 
-            where: { group_id },
-            attributes: {
-                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'completed_items_count' ]]
-            },
-            include: [{ 
-                model: listItem, 
-                attributes: []
-            }],
-            group: ['list.id']
+        const formated_lists = lists.map(list => {
+            const { listItems, ...attributes } = list.dataValues
+            return {
+                ...attributes,
+                completed_items_count: listItems.filter(el => el.completed).length,
+                items_count: listItems.length
+            }
         })
 
-        const lists = lists_with_all.map((list, index) => ({
-            ...list.dataValues,
-            items_count: parseInt(list.dataValues.items_count),
-            completed_items_count: parseInt(lists_with_completed[index].dataValues.completed_items_count)
-        }))
-
-        return res.send({ lists })
+        return res.send({ formated_lists })
     } catch(error) {
         return next(error)
     }
