@@ -19,7 +19,7 @@ const getAll = async (req, res, next) => {
         const lists_with_all = await list.findAll({ 
             where: { group_id },
             attributes: {
-                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'itemsCount' ]]
+                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'items_count' ]]
             },
             include: [{ 
                 model: listItem, 
@@ -32,7 +32,7 @@ const getAll = async (req, res, next) => {
         const lists_with_completed = await list.findAll({ 
             where: { group_id },
             attributes: {
-                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'completeditemsCount' ]]
+                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'completed_items_count' ]]
             },
             include: [{ 
                 model: listItem, 
@@ -43,8 +43,8 @@ const getAll = async (req, res, next) => {
 
         const lists = lists_with_all.map((list, index) => ({
             ...list.dataValues,
-            itemsCount: parseInt(list.dataValues.itemsCount),
-            completeditemsCount: parseInt(lists_with_completed[index].dataValues.completeditemsCount)
+            items_count: parseInt(list.dataValues.items_count),
+            completed_items_count: parseInt(lists_with_completed[index].dataValues.completed_items_count)
         }))
 
         return res.send({ lists })
