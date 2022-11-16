@@ -42,6 +42,8 @@ const listValidation = yup.object({
 const listItemValidation = yup.object({
     name: yup.string(generalMsg.invalidType)
         .required(generalMsg.required),
+    completed: yup.boolean(generalMsg.invalidType)
+        .required(generalMsg.required),
     list_id: yup.number(generalMsg.invalidType)
         .required(generalMsg.required)
 })

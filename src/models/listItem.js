@@ -9,6 +9,11 @@ class listItem extends Model {
                     type: DataTypes.STRING,
                     allowNull: false
                 },
+                completed: {
+                    type: DataTypes.BOOLEAN,
+                    allowNull: false,
+                    defaultValue: false
+                },
                 list_id: {
                     type: DataTypes.NUMBER,
                     allowNull: false,

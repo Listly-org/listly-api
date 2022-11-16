@@ -1,7 +1,9 @@
+const { Sequelize } = require('sequelize')
 const { listValidation } = require('../common/validations')
 const list = require('../models/list')
 const listItem = require('../models/listItem')
 
+// Forgive me Lord for what I've done here
 const getAll = async (req, res, next) => {
     try {
         const { user: { group_id } } = req
@@ -14,7 +16,36 @@ const getAll = async (req, res, next) => {
             })
         }
 
-        const lists = await list.findAll({ where: { group_id } })
+        const lists_with_all = await list.findAll({ 
+            where: { group_id },
+            attributes: {
+                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'itemsCount' ]]
+            },
+            include: [{ 
+                model: listItem, 
+                attributes: [], 
+                where: { completed: true } 
+            }],
+            group: ['list.id']
+        })
+
+        const lists_with_completed = await list.findAll({ 
+            where: { group_id },
+            attributes: {
+                include: [[ Sequelize.fn('COUNT', Sequelize.col('listItems.id')), 'completeditemsCount' ]]
+            },
+            include: [{ 
+                model: listItem, 
+                attributes: []
+            }],
+            group: ['list.id']
+        })
+
+        const lists = lists_with_all.map((list, index) => ({
+            ...list.dataValues,
+            itemsCount: parseInt(list.dataValues.itemsCount),
+            completeditemsCount: parseInt(lists_with_completed[index].dataValues.completeditemsCount)
+        }))
 
         return res.send({ lists })
     } catch(error) {
