@@ -95,7 +95,16 @@ const joinGroup = async (req, res, next) => {
             }
         )
 
-        return res.send({ ...updatedUser })
+        const token = jwt.sign(
+            { ...updatedUser[0].dataValues },
+            process.env.APP_SECRET,
+            { expiresIn: process.env.APP_SECRET_EXPIRES }
+        )
+
+        return res.send({
+            user: updatedUser[0].dataValues,
+            token
+        })
     } catch(error) {
         return next(error)
     }
