@@ -49,6 +49,11 @@ module.exports = {
         },
         {
             url: '/list/:id',
+            method: 'PUT',
+            controller: listController.update
+        },
+        {
+            url: '/list/:id',
             method: 'DELETE',
             controller: listController.exclude
         },

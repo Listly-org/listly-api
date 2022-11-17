@@ -72,6 +72,22 @@ const create = async (req, res, next) => {
     }
 }
 
+const update = async (req, res, next) => {
+    try {
+        const { body, params: { id } } = req
+        await listValidation.validate(body)
+
+        await list.update(
+            { ...body },
+            { where: { id } }
+        )
+
+        return res.status(204).send({})
+    } catch(error) {
+        return next(error)
+    }
+}
+
 const exclude = async(req, res, next) => {
     try {
         const { params: { id } } = req
@@ -90,5 +106,6 @@ module.exports  = {
     getAll,
     get,
     create,
+    update,
     exclude
 }
