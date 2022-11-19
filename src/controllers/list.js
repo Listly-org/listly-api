@@ -47,6 +47,7 @@ const get = async (req, res, next) => {
 
         return res.send({
             ...listResponse.dataValues,
+            listItems: listResponse.dataValues.listItems.sort((a, b) => a.id - b.id),
             completed_items_count: listResponse.dataValues.listItems.filter(el => el.completed).length,
             items_count: listResponse.dataValues.listItems.length
         })
