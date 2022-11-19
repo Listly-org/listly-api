@@ -45,7 +45,11 @@ const get = async (req, res, next) => {
             include: [{ model: listItem }]
         })
 
-        return res.send({ ...listResponse.dataValues })
+        return res.send({
+            ...listResponse.dataValues,
+            completed_items_count: listResponse.dataValues.listItems.filter(el => el.completed).length,
+            items_count: listResponse.dataValues.listItems.length
+        })
     } catch(error) {
         return next(error)
     }
