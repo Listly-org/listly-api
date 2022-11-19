@@ -64,6 +64,11 @@ module.exports = {
         },
         {
             url: '/list-item/:id',
+            method: 'PUT',
+            controller: listItemController.update
+        },
+        {
+            url: '/list-item/:id',
             method: 'DELETE',
             controller: listItemController.exclude
         },
