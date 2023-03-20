@@ -3,7 +3,7 @@
 [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/KauanR/listly-api/blob/main/README.pt-br.md)
 
 ## About
-REST API that provides CRUD operations to represent to-do lists. It is used in conjunction with its front-end, the [Listly APP](https://github.com/KauanR/listly-api/blob/main/src/common/routes.js).
+REST API that provides CRUD operations to represent to-do lists. It is used in conjunction with its front-end, the [Listly APP](https://github.com/KauanR/listly-app).
 <br/>
 Made as a partial requirement for obtaining a Bachelor's degree in the subject 'Tópicos Especiais em Computação I A - URI'
 <br/>
