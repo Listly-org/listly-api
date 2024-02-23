@@ -1,9 +1,9 @@
 # Listly API
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/KauanR/listly-api/blob/main/README.md)
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/KauanR/listly-api/blob/main/README.pt-br.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Listly-org/listly-api/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Listly-org/listly-api/blob/main/README.pt-br.md)
 
 ## Sobre
-API REST que provê operações CRUD para representar listas de afazeres. Sua utilização é feita em conjunto com o seu front-end, o [Listly APP](https://github.com/KauanR/listly-api/blob/main/src/common/routes.js).
+API REST que provê operações CRUD para representar listas de afazeres. Sua utilização é feita em conjunto com o seu front-end, o [Listly APP](https://github.com/Listly-org/listly-api/blob/main/src/common/routes.js).
 <br/>
 Feita como requisito parcial para a obtenção do grau de Bacharel na disciplina de 'Tópicos Especiais em Computação I A - URI'.
 <br/>
@@ -32,7 +32,7 @@ APP_SECRET_EXPIRES=<tempo de expiração das chaves de usuário>
 ### Instalação
 1. Clone o repositório
    ```sh
-   git clone https://github.com/KauanR/listly-api
+   git clone https://github.com/Listly-org/listly-api
    ```
 2. Instale os pacotes
    ```sh
@@ -44,7 +44,7 @@ APP_SECRET_EXPIRES=<tempo de expiração das chaves de usuário>
    ```
 
 ## Utilização
-A API pode ser utilizada isoladamente, entretanto, foi desenvolvida pensada exclusivamente para ser o back-end do [Listly APP](https://github.com/KauanR/listly-app). As rotas disponilizadas podem ser encontradas no [arquivo de rotas](https://github.com/KauanR/listly-api/blob/main/src/common/routes.js).
+A API pode ser utilizada isoladamente, entretanto, foi desenvolvida pensada exclusivamente para ser o back-end do [Listly APP](https://github.com/Listly-org/listly-app). As rotas disponilizadas podem ser encontradas no [arquivo de rotas](https://github.com/Listly-org/listly-api/blob/main/src/common/routes.js).
 
 ## Licensa
 Distribuído sob a licença MIT. Veja `LICENSE.txt` para mais informações.

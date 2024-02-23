@@ -1,9 +1,9 @@
 # Listly API
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/KauanR/listly-api/blob/main/README.md)
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/KauanR/listly-api/blob/main/README.pt-br.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Listly-org/listly-api/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Listly-org/listly-api/blob/main/README.pt-br.md)
 
 ## About
-REST API that provides CRUD operations to represent to-do lists. It is used in conjunction with its front-end, the [Listly APP](https://github.com/KauanR/listly-app).
+REST API that provides CRUD operations to represent to-do lists. It is used in conjunction with its front-end, the [Listly APP](https://github.com/Listly-org/listly-app).
 <br/>
 Made as a partial requirement for obtaining a Bachelor's degree in the subject 'Tópicos Especiais em Computação I A - URI'
 <br/>
@@ -32,7 +32,7 @@ APP_SECRET_EXPIRES=<user keys expiration time>
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/KauanR/listly-api
+   git clone https://github.com/Listly-org/listly-api
    ```
 2. Install NPM packages
    ```sh
@@ -44,7 +44,7 @@ APP_SECRET_EXPIRES=<user keys expiration time>
    ```
 
 ## Usage
-The API can be used alone, however, it was developed exclusively to be the back-end of [Listly APP](https://github.com/KauanR/listly-app). The available routes can be found in the [routes file](https://github.com/KauanR/listly-api/blob/main/src/common/routes.js).
+The API can be used alone, however, it was developed exclusively to be the back-end of [Listly APP](https://github.com/Listly-org/listly-app). The available routes can be found in the [routes file](https://github.com/Listly-org/listly-api/blob/main/src/common/routes.js).
 
 ## License
 Distributed under the MIT License. See `LICENSE.txt` for more information.
